@@ -3,10 +3,16 @@ import { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import WebDb from './WebDb';
+import DigitalMarketing from './DigitalMarketing';
+import GraphicsDesigner from './GraphicsDesigner';
 const RTabs = () => {
-    const [webDevolopment,setWebDevolopment] = useState();
     const [looding, setLooding] = useState(true);
-    // for webDb
+    const [webDevolopment,setWebDevolopment] = useState();
+    const [digitalMarketing, setDigitalMarketing] = useState();
+    const [graphicsDesigner, setGraphicsDesigner] = useState();
+   
+    // for weDevolopment
+    
    useEffect(() =>{
         axios.get('http://localhost:5000/webDevolopment')
         .then(data => {
@@ -14,14 +20,29 @@ const RTabs = () => {
             setLooding(false)
         })
    },[])
+   // for DegitalMarketing
+   useEffect(() =>{
+        axios.get('http://localhost:5000/digitalMarketing')
+        .then(data => {
+            setDigitalMarketing(data?.data);
+            setLooding(false)
+        })
+   },[])
+
+   // for graphics designer 
+   useEffect(() =>{
+        axios.get('http://localhost:5000/graphicsDesigner')
+        .then(data => {
+            setGraphicsDesigner(data?.data);
+            setLooding(false)
+        })
+   },[])
 
    if(looding){
     return <h2>looding.....</h2>
    }
-   
 
-  const items = webDevolopment.map(job => job?.category);
-  console.log(items)
+
 
     return (
         <div className='mt-14'>
@@ -34,7 +55,7 @@ const RTabs = () => {
 
                 <TabPanel>
                    {/* web db content */}
-                  <div className='grid md:grid-cols-4 mt-10'>
+                  <div className='grid md:grid-cols-3 mt-10 gap-6'>
                   {
                     webDevolopment.map(jobs => <WebDb key={jobs._id }jobs={jobs}></WebDb>)
                   }
@@ -42,10 +63,20 @@ const RTabs = () => {
                    
                 </TabPanel>
                 <TabPanel>
-                    <h2>Digital marketing content </h2>
+                    {/* digtla marketing content */}
+                <div className='grid md:grid-cols-3 mt-10 gap-6'>
+                  {
+                    digitalMarketing.map(jobs =><DigitalMarketing key={jobs._id} jobs={jobs}></DigitalMarketing>)
+                  }
+                  </div>
                 </TabPanel>
                 <TabPanel>
-                    <h2>Graphics design content </h2>
+                    {/*Graphics design content  */}
+                   <div className='grid md:grid-cols-3 mt-10 gap-6'>
+                   {
+                    graphicsDesigner.map(jobs =><GraphicsDesigner key={jobs._id} jobs={jobs}></GraphicsDesigner>)
+                  }
+                   </div>
                 </TabPanel>
             </Tabs>
         </div>
