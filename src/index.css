@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@300;400;500;700;900&display=swap');
+*{
+    font-family: 'Encode Sans', sans-serif;
+}
+a.active {
+    color: white;
+}
+
+.menu  li :hover  {
+    background: #46b9ee!important;
+    transition: all linear 0.2s;
+    color: white;
+}
+h1,h3,p{
+    color: #131135;
+}
+h2{
+    color: #46b9ee;
+}
+.react-tabs__tab-list {
+    text-align: center;
+    margin: 0 0 10px;
+    padding: 0;
+    border: 0!important;
+   
+}
+.react-tabs__tab {
+    display: inline-block;
+    border: 1px solid #46b9ee!important;
+    border-bottom: none;
+    bottom: -1px;
+    position: relative;
+    list-style: none;
+    padding: 10px 30px!important;
+    cursor: pointer;
+   margin-left: 30px;
+   border-radius: 5px!important;
+}
+.react-tabs__tab--selected{
+    background: #46b9ee!important;
+    border: none!important;
+    border-radius: 5px!important;
+   color: white!important;
+    
+}
