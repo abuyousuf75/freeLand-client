@@ -13,7 +13,7 @@ const Navbar = () => {
     </>
     return (
 
-        <div className="navbar absolute left-0 border-b-2 border-[#7294b0] top-0 container py-4">
+        <div className="navbar left-0 border-b-2 border-[#7294b0] top-0 container py-4">
             <div className="navbar-start">
                 {/* mobile navbar */}
                 <MobileNavbar></MobileNavbar>
@@ -47,7 +47,7 @@ const Navbar = () => {
                 </div>
                 {/* login btn */}
                 
-                    <Link to='/login'><button className="btn ml-8 bg-[#46b9ee] border-0">LogIn</button> </Link>
+                    <Link to='/login'><button className="ml-8 bg-[#FE4A23] border-0 px-8 text-xl text-[#fff] py-4 rounded-lg capitalize">LogIn </button> </Link>
                 
             </div>
         </div>

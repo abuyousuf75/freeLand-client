@@ -11,6 +11,7 @@ const RTabs = () => {
     const [digitalMarketing, setDigitalMarketing] = useState();
     const [graphicsDesigner, setGraphicsDesigner] = useState();
    
+   
     // for weDevolopment
     
    useEffect(() =>{
@@ -57,7 +58,7 @@ const RTabs = () => {
                    {/* web db content */}
                   <div className='grid md:grid-cols-3 mt-10 gap-6'>
                   {
-                    webDevolopment.map(jobs => <WebDb key={jobs._id }jobs={jobs}></WebDb>)
+                    webDevolopment?.map(jobs => <WebDb key={jobs._id }jobs={jobs}></WebDb>)
                   }
                   </div>
                    
@@ -66,7 +67,7 @@ const RTabs = () => {
                     {/* digtla marketing content */}
                 <div className='grid md:grid-cols-3 mt-10 gap-6'>
                   {
-                    digitalMarketing.map(jobs =><DigitalMarketing key={jobs._id} jobs={jobs}></DigitalMarketing>)
+                    digitalMarketing?.map(jobs =><DigitalMarketing key={jobs._id} jobs={jobs}></DigitalMarketing>)
                   }
                   </div>
                 </TabPanel>
@@ -74,7 +75,7 @@ const RTabs = () => {
                     {/*Graphics design content  */}
                    <div className='grid md:grid-cols-3 mt-10 gap-6'>
                    {
-                    graphicsDesigner.map(jobs =><GraphicsDesigner key={jobs._id} jobs={jobs}></GraphicsDesigner>)
+                    graphicsDesigner?.map(jobs =><GraphicsDesigner key={jobs._id} jobs={jobs}></GraphicsDesigner>)
                   }
                    </div>
                 </TabPanel>
