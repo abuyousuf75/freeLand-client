@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 
 const WebDb = ({ jobs }) => {
-    const { jobTitle, photo, deadline, minPrice, maxPrice, description } = jobs;
+    const {_id, jobTitle, photo, deadline, minPrice, maxPrice, description } = jobs;
     const shortDescription = description.slice(0, 40);
 
     return (
@@ -17,7 +18,9 @@ const WebDb = ({ jobs }) => {
                     <p className="text-lg">{shortDescription}</p>
                 </div>
                 <div className="pt-4 pb-8 text-center">
+                    <Link to ={`/webDevolopment/${_id}`}>
                     <button className="px-10 py-3  w-[90%] text-white bg-[#46b9ee] rounded-md">Bid Now</button>
+                    </Link>
                 </div>
             </div>
         </div>
