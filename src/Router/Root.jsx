@@ -9,6 +9,7 @@ import GraphicsDesignDetails from "../Sharedcomponents/CategoryJobsDetails/Graph
 import MyBids from "../pages/MyBids/MyBids";
 import AddJobs from "../pages/AddJobs/AddJobs";
 import MyPostedJobs from "../pages/MyPostedJobs/MyPostedJobs";
+import UpdatePostedJobs from "../pages/MyPostedJobs/UpdatePostedJobs";
 
 
 const router = createBrowserRouter([
@@ -53,6 +54,12 @@ const router = createBrowserRouter([
         {
           path: "MyPostedJobs",
           element : <MyPostedJobs></MyPostedJobs>,
+        },
+        {
+          path: "/updatePostedJobs/:id",
+          element : <UpdatePostedJobs></UpdatePostedJobs>,
+          loader : () => fetch('http://localhost:5000/updatePostedJobs')
+         
         },
 
 

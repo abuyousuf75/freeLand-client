@@ -7,6 +7,9 @@ import PostedJobsDeatils from "./PostedJobsDeatils";
 
 const MyPostedJobs = () => {
     const [postedJobs, setPostedJobs] = useState([])
+    const  newJobs = postedJobs;
+    console.log(newJobs)
+   
     const {user} = useAuth();
     const uri = `http://localhost:5000/myPostedJobs?email=${user?.email}`;
 
@@ -17,13 +20,15 @@ const MyPostedJobs = () => {
     })
   },[uri])
 
+
+
     
     return (
         <div className="max-w-7xl mx-auto mt-10">
             <h2 className="text-center mb-10 font-bold text-4xl">My Posted Jobs</h2>
-           <div className="grid md:grid-cols-3 gap-4">
+           <div className="grid md:grid-cols-3 gap-6">
            {
-                postedJobs.map(postedItems => <PostedJobsDeatils key={postedItems._id} postedItems={postedItems}></PostedJobsDeatils>)
+                postedJobs.map(postedItems => <PostedJobsDeatils key={postedItems._id} newJobs={newJobs} postedItems={postedItems} setPostedJobs={setPostedJobs}></PostedJobsDeatils>)
             }
            </div>
         </div>
