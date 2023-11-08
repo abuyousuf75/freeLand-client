@@ -15,10 +15,10 @@ const GraphicsDesignDetails = () => {
         const form = event.target;
         const bidAmound =form.price.value;
         const deadLine =form.date.value;
-        const yourEmail =form.yourEmail.value;
-        const ownerEmail =form.ownerEmail.value;
+        const email =form.email.value;
+        const employerEmail =form.employerEmail.value;
        
-        const bidInfo = {bidAmound,deadLine,yourEmail,ownerEmail,photo,jobTitle};
+        const bidInfo = {bidAmound,deadLine,email,employerEmail,photo,jobTitle};
         console.log(bidInfo)
 
         // allBids post
@@ -90,7 +90,7 @@ const GraphicsDesignDetails = () => {
                             <span className="label-text text-xl mb-2">Your Eamil</span>
                         </label>
                         <label className="input-group border-2">
-                            <input name="yourEmail" type="email" placeholder="Your Email" defaultValue={user?.email} className="input  w-full"  required/>
+                            <input name="email" type="email" placeholder="Your Email" defaultValue={user?.email} className="input  w-full"  required/>
                         </label>
                     </div>
                    <div className="form-control md:w-1/2">
@@ -98,7 +98,7 @@ const GraphicsDesignDetails = () => {
                             <span className="label-text text-xl mb-2">Owner Email</span>
                         </label>
                         <label className="input-group border-2">
-                            <input name="ownerEmail" type="email" defaultValue={email} className="input w-full" required />
+                            <input name="employerEmail" type="email" defaultValue={email} className="input w-full" required />
                         </label>
                     </div>
                    </div>

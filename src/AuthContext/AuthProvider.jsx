@@ -41,18 +41,15 @@ const AuthProvider = ({children}) => {
             setLooding(false);
         });
         return () =>{
-            unsubscribe()
+          return  unsubscribe()
         }
     },[])
-
-
-
-
 
 
     const AuthInfo = {
         createUser,user,looding,loginUser,logOut,googleLogin
     }
+
     
     return (
         <AuthContext.Provider value={AuthInfo}>

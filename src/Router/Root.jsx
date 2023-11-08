@@ -6,6 +6,7 @@ import Register from "../Authntications/Register";
 import WebDdDeatils from "../Sharedcomponents/CategoryJobsDetails/WebDdDeatils";
 import DigitalMarketingDeatils from "../Sharedcomponents/CategoryJobsDetails/DigitalMarketingDeatils";
 import GraphicsDesignDetails from "../Sharedcomponents/CategoryJobsDetails/GraphicsDesignDetails";
+import MyBids from "../pages/MyBids/MyBids";
 
 
 const router = createBrowserRouter([
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
           path: "login",
           element:<Login></Login>
           
+        },
+        {
+          path: "myBids",
+          element : <MyBids></MyBids>
         },
         {
           path: "register",
