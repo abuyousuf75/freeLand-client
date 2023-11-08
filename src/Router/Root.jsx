@@ -7,6 +7,8 @@ import WebDdDeatils from "../Sharedcomponents/CategoryJobsDetails/WebDdDeatils";
 import DigitalMarketingDeatils from "../Sharedcomponents/CategoryJobsDetails/DigitalMarketingDeatils";
 import GraphicsDesignDetails from "../Sharedcomponents/CategoryJobsDetails/GraphicsDesignDetails";
 import MyBids from "../pages/MyBids/MyBids";
+import AddJobs from "../pages/AddJobs/AddJobs";
+import MyPostedJobs from "../pages/MyPostedJobs/MyPostedJobs";
 
 
 const router = createBrowserRouter([
@@ -49,8 +51,19 @@ const router = createBrowserRouter([
           element : <MyBids></MyBids>
         },
         {
+          path: "MyPostedJobs",
+          element : <MyPostedJobs></MyPostedJobs>,
+        },
+
+
+        {
           path: "register",
           element:<Register></Register>,
+          
+        },
+        {
+          path: "addJobs",
+          element:<AddJobs></AddJobs>,
           
         },
       ],
