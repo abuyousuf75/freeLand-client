@@ -25,7 +25,7 @@ const MobileNavbar = () => {
            
            </div>
 
-           <ul className={`md:hidden mr-4 absolute gap-6 mt-10 md:static md:w-full w-96 justify-center items-center text-center duration-1000 md:bg-opacity-0 bg-[#46b9ee] ${open? 'left-10' :'-left-96 '}` }>
+           <ul className={`md:hidden mr-4 absolute gap-6 mt-10 md:static md:w-full w-96 justify-center items-center text-center duration-1000 md:bg-opacity-0 bg-[#46b9ee] ${open? 'left-4' :'-left-96 '}` }>
           
            {
                 routes.map(links => <li className=" mt-4 mb-4  md:mt-0 md:mb-0" key={links.id}>

@@ -1,0 +1,30 @@
+[
+    {
+        "img": "https://themebing.com/wp/prolancer/wp-content/uploads/2021/04/pexels-pixabay-220453-300x300.jpg",
+        "name": "Harry Olson",
+        "id": 1,
+        "hourly_rate": 20.00,
+        "designation": "Web Developer"
+    },
+    {
+        "img": "https://themebing.com/wp/prolancer/wp-content/uploads/2021/04/pexels-andrea-piacquadio-3777566-300x300.jpg",
+        "name": "David Parker",
+        "id": 2,
+        "hourly_rate": 25.00,
+        "designation": "Graphics Designer"
+    },
+    {
+        "img": "https://themebing.com/wp/prolancer/wp-content/uploads/2021/04/pexels-andrea-piacquadio-874158-300x300.jpg",
+        "name": "John Doe",
+        "id": 3,
+        "hourly_rate": 18.50,
+        "designation": "Digital Marketer"
+    },
+    {
+        "img": "https://themebing.com/wp/prolancer/wp-content/uploads/2021/04/pexels-mentatdgt-1138903-300x300.jpg",
+        "name": "Jhankar Mahabub",
+        "id": 4,
+        "hourly_rate": 30.00,
+        "designation": "Senior Web Developer"
+    }
+]
