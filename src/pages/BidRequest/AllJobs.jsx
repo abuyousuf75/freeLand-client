@@ -3,10 +3,13 @@ import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 
-const DigitalMarketingDeatils = () => {
-    const webDetails = useLoaderData();
-    const { jobTitle, photo, deadline, minPrice, maxPrice, description ,email} = webDetails;
+
+const AllJobs = () => {
+    const loader = useLoaderData();
+    const {_id,email,deadline,job_category,photo,jobTitle,description,min_price,max_price} = loader;
+   
     const {user} = useAuth();
+
     
     // handel submitBid jobs
     const hadelBidJobs = (event) =>{
@@ -18,7 +21,7 @@ const DigitalMarketingDeatils = () => {
         const employerEmail =form.employerEmail.value;
        
         const bidInfo = {bidAmound,deadLine,email,employerEmail,photo,jobTitle};
-        console.log(bidInfo)
+      
 
         // allBids post
         axios.post('http://localhost:5000/allBid',
@@ -36,9 +39,6 @@ const DigitalMarketingDeatils = () => {
         })
     }
 
-
-
-
     return (
         <div className="max-w-7xl mx-auto">
         <h2 className=" text-4xl font-bold mt-10">{jobTitle}</h2>
@@ -50,7 +50,7 @@ const DigitalMarketingDeatils = () => {
                <div className="">
                <h4 className="mb-2 font-bold text-2xl ">Job title : {jobTitle}</h4>
                 
-                <h4 className="text-xl mb-2 font-semibold">Price Range : $ {minPrice} - $ {maxPrice}</h4>
+                <h4 className="text-xl mb-2 font-semibold">Price Range : $ {min_price} - $ {max_price}</h4>
                 <h5 className="text-xl font-semibold text-[#1d1b3d]">Deadline : {deadline}</h5>
                 <p className="mt-4 font-semibold  text-[#fe4a23]">Job Description : <span className="text-[#1d1b3d]">{description}{description}</span></p>
                </div>
@@ -59,7 +59,7 @@ const DigitalMarketingDeatils = () => {
                
                <div>
         {/* Open the modal using document.getElementById('ID').showModal() method */}
-        <button className="btn bg-[#46b9ee] px-8 py-3 text-[#ffffff] hover:bg-[#fe4a23] capitalize" onClick={() => document.getElementById('my_modal_1').showModal()}>place your bid</button>
+        <button className="btn bg-[#46b9ee] px-8 py-3 text-[#ffffff] hover:bg-[#fe4a23] capitalize"  onClick={() => document.getElementById('my_modal_1').showModal()}>place your bid</button>
         <dialog id="my_modal_1" className="modal">
             <div className="modal-box md:max-w-screen-lg">
             <form onSubmit={hadelBidJobs}>
@@ -90,22 +90,22 @@ const DigitalMarketingDeatils = () => {
                         <span className="label-text text-xl mb-2">Your Eamil</span>
                     </label>
                     <label className="input-group border-2">
-                        <input name="email" type="email" placeholder="Your Email" defaultValue={user?.email} className="input  w-full"  required/>
+                        <input name="email" type="email" placeholder="Your Email" defaultValue={user?.email}  className="input  w-full"  required/>
                     </label>
                 </div>
                <div className="form-control md:w-1/2">
                     <label className="label">
-                        <span className="label-text text-xl mb-2">Owner Email</span>
+                        <span className="label-text text-xl mb-2">Employer Email</span>
                     </label>
                     <label className="input-group border-2">
-                        <input name="employerEmail" type="email" defaultValue={email} className="input w-full" required />
+                        <input name="employerEmail" type="email" defaultValue={email} readOnly className="input w-full" required />
                     </label>
                 </div>
         
 
                </div>
                 <div className="px-10 py-6">
-                    <input type="submit" value="Bid Now"  className="btn btn-block text-xl bg-[#6cbdee] capitalize hover:bg-black hover:text-white "/>
+                    <input type="submit"  value="Bid Now"  className="btn btn-block text-xl bg-[#6cbdee] capitalize hover:bg-black hover:text-white "/>
                 </div>
             </form>
                
@@ -125,4 +125,4 @@ const DigitalMarketingDeatils = () => {
     );
 };
 
-export default DigitalMarketingDeatils;
+export default AllJobs;

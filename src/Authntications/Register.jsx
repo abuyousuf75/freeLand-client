@@ -19,9 +19,9 @@ const handelRegisterForm = (event) =>{
    const form = event.target;
    const userName = form.name.value;
    const userImg = form.photo.value;
-   const userEmail = form.email.value;
+   const email = form.email.value;
    const userPassword = form.password.value;
-   const userInfo = { userName, userImg, userEmail, userPassword }
+   const userInfo = { userName, userImg, email, userPassword }
    console.log(userInfo);
 // check conditions before send on db
  // password pattern or regular expression
@@ -49,7 +49,7 @@ const handelRegisterForm = (event) =>{
         }
 
    // cretUser 
-   createUser(userEmail,userPassword)
+   createUser(email,userPassword)
     .then(res =>{
         console.log(res.user)
         Swal.fire({

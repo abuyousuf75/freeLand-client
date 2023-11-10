@@ -44,7 +44,7 @@ const PostedJobsDeatils = ({postedItems,newJobs,setPostedJobs}) => {
   
     return (
         <div>
-            <div className="card rounded-lg card-compact border-2 bg-base-100 shadow-md">
+            <div className="card h-full rounded-lg card-compact border-2 bg-base-100 shadow-md">
                 <figure><img src={photo} alt="img" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{jobTitle}</h2>

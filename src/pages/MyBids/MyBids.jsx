@@ -29,7 +29,7 @@ const MyBids = () => {
                                Action
                             </th>
                             <th>Job title</th>
-                            <th>Email</th>
+                            <th>Employer email</th>
                             <th>Deadline</th>
                             <th>Bid Amound</th>
                             <th>Status</th>

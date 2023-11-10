@@ -2,42 +2,45 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import WebDb from './WebDb';
-import DigitalMarketing from './DigitalMarketing';
-import GraphicsDesigner from './GraphicsDesigner';
+import WebDevolopment from '../../../../Sharedcomponents/CategoryJobsDetails/WebDevolopmentAllContent/WebDevolopment';
+import GraphicsDesign from '../../../../Sharedcomponents/CategoryJobsDetails/GraphicsDesignAllContent/GraphicsDesign';
+import Digitalmarketing from '../../../../Sharedcomponents/CategoryJobsDetails/DigitalMarketingAllContent/Digitalmarketing';
+
+
 const RTabs = () => {
     const [looding, setLooding] = useState(true);
-    const [webDevolopment,setWebDevolopment] = useState();
-    const [digitalMarketing, setDigitalMarketing] = useState();
-    const [graphicsDesigner, setGraphicsDesigner] = useState();
-   
+   const [webDevolopments, setWebDevolopment] = useState([]);
+   const [gaphicsDesigns, setGraphicsDesign] = useState([]);
+   const [digitalMarketings, setDigitalMarketing] = useState([]);
    
     // for weDevolopment
-    
-   useEffect(() =>{
-        axios.get('http://localhost:5000/webDevolopment')
-        .then(data => {
-            setWebDevolopment(data?.data);
-            setLooding(false)
+    useEffect(() =>{
+        axios.get('http://localhost:5000/allJobs?jobcategory=webDevolopment')
+        .then(res =>{
+           setWebDevolopment(res.data);
+           setLooding(false)
         })
-   },[])
+    },[])
+    
    // for DegitalMarketing
    useEffect(() =>{
-        axios.get('http://localhost:5000/digitalMarketing')
-        .then(data => {
-            setDigitalMarketing(data?.data);
-            setLooding(false)
-        })
-   },[])
+    axios.get('http://localhost:5000/allJobs?jobcategory=digitalMarketing')
+    .then(res =>{
+       setDigitalMarketing(res.data);
+       setLooding(false)
+    })
+},[])
 
+   
    // for graphics designer 
    useEffect(() =>{
-        axios.get('http://localhost:5000/graphicsDesigner')
-        .then(data => {
-            setGraphicsDesigner(data?.data);
-            setLooding(false)
-        })
-   },[])
+    axios.get('http://localhost:5000/allJobs?jobcategory=graphicsDesign')
+    .then(res =>{
+       setGraphicsDesign(res.data);
+       setLooding(false)
+    })
+},[])
+
 
    if(looding){
     return <h2>looding.....</h2>
@@ -56,27 +59,29 @@ const RTabs = () => {
 
                 <TabPanel>
                    {/* web db content */}
-                  <div className='grid md:grid-cols-3 mt-10 gap-6'>
-                  {
-                    webDevolopment?.map(jobs => <WebDb key={jobs._id }jobs={jobs}></WebDb>)
-                  }
-                  </div>
+                 <div className='grid md:grid-cols-3 mt-10 gap-6'>
+                      
+                {
+                    webDevolopments.map(web => <WebDevolopment key={web._id} web={web}></WebDevolopment>)
+                }
+                 </div>
                    
                 </TabPanel>
                 <TabPanel>
                     {/* digtla marketing content */}
                 <div className='grid md:grid-cols-3 mt-10 gap-6'>
                   {
-                    digitalMarketing?.map(jobs =><DigitalMarketing key={jobs._id} jobs={jobs}></DigitalMarketing>)
+                    digitalMarketings.map(digital => <Digitalmarketing key={digital._id} digital={digital}></Digitalmarketing>)
                   }
                   </div>
                 </TabPanel>
                 <TabPanel>
                     {/*Graphics design content  */}
                    <div className='grid md:grid-cols-3 mt-10 gap-6'>
-                   {
-                    graphicsDesigner?.map(jobs =><GraphicsDesigner key={jobs._id} jobs={jobs}></GraphicsDesigner>)
-                  }
+                    {
+                        gaphicsDesigns.map(graphics => <GraphicsDesign key={graphics._id} graphics={graphics}></GraphicsDesign>)
+                    }
+
                    </div>
                 </TabPanel>
             </Tabs>

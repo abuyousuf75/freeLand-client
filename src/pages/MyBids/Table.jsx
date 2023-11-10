@@ -24,7 +24,7 @@ const Table = ({ tables }) => {
             </div>
         </td>
         <td>
-            {email}
+            {employerEmail}
         </td>
         <td>{deadLine}</td>
         <td>${bidAmound}</td>

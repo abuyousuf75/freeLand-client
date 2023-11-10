@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import { useEffect, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -9,18 +9,21 @@ import axios from "axios";
 const Login = () => {
     const {loginUser,googleLogin} = useAuth();
     const [showPassword, setPassword] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
+
 //handel lofin form
 const handelLoginForm =(event) =>{
     event.preventDefault();
     // get user info
     const form = event.target;
     const userName = form.name.value;
-    const userEmail = form.email.value;
+    const email = form.email.value;
     const userPassword = form.password.value;
-    const userInfo = { userName,userEmail,userPassword }
+    const userInfo = { userName,email,userPassword }
     console.log(userInfo);
     // hadel login user info
-    loginUser(userEmail,userPassword)
+    loginUser(email,userPassword)
     .then(res =>{
         console.log(res.user)
         
@@ -29,8 +32,8 @@ const handelLoginForm =(event) =>{
             text: 'User login Sucessfuly ',
 
         })
-       
     
+        navigate(location?.state ? location.state : '/')
         form.reset()
     })
     .catch(err =>{
@@ -47,6 +50,9 @@ const handelLoginForm =(event) =>{
 //googleLogin
 const handelGoogleLogin = () =>{
     googleLogin()
+    .then(() => {
+     navigate(location.state ? location.state :'/')
+   })
 }
 
 

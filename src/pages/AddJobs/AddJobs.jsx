@@ -13,11 +13,11 @@ const AddJobs = () => {
         const jobTitle = form.jobTitle.value;
         const deadline = form.deadline.value;
         const description = form.description.value;
-        const job_category = form.job_category.value;
+        const jobcategory = form.job_category.value;
         const min_price = form.min_price.value;
         const max_price = form.max_price.value;
         const photo = form.photo.value;
-        const addPostedJobsInfo = {email,jobTitle,deadline,description,job_category,min_price,max_price,photo};
+        const addPostedJobsInfo = {email,jobTitle,deadline,description, jobcategory,min_price,max_price,photo};
         console.log(addPostedJobsInfo);
 
         //send post requst for all posted jobs
@@ -92,9 +92,9 @@ const AddJobs = () => {
 
                                 <select name="job_category" >
                                     <option value=''>Select</option>
-                                    <option value='Web_Devolopment'>Web Devolopment</option>
-                                    <option value='Digital_Marketing'>Digital Marketing</option>
-                                    <option value='Graphics_Design'>Graphics Design</option>
+                                    <option value='webDevolopment'>Web Devolopment</option>
+                                    <option value='digitalMarketing'>Digital Marketing</option>
+                                    <option value='graphicsDesign'>Graphics Design</option>
                                     
                                 </select>
 
