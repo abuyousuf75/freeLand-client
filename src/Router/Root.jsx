@@ -11,6 +11,7 @@ import UpdatePostedJobs from "../pages/MyPostedJobs/UpdatePostedJobs";
 import Error from "../pages/Error404/Error";
 import PrivateRoute from "../pages/PrivateRoute/PrivateRoute";
 import AllJobs from "../pages/BidRequest/AllJobs";
+import UsersBidRequest from "../pages/UserBidRequest/UsersBidRequest";
 
 
 
@@ -26,7 +27,11 @@ const router = createBrowserRouter([
           
         },
         
-       
+       {
+          path: '/BidRequest',
+          element :<UsersBidRequest></UsersBidRequest>,
+          
+       },
         
         {
           path: "login",

@@ -1,8 +1,26 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 
 const Digitalmarketing = ({digital}) => {
+    const {user} = useAuth();
+    const navigate = useNavigate()
     const {_id,email,deadline,job_category,photo,jobTitle,description,min_price,max_price} = digital;
+
+   const handelUserEmail = (_id) =>{
+    if(user?.email ===email){
+        Swal.fire({
+            icon: "error",
+            title: "You can not apply own jobs",
+           
+          })
+    }
+    else{
+        navigate(`allJobs/${_id}`)
+      }
+   }
+
     return (
         <div className="card h-full rounded-lg card-compact border-2 bg-base-100 shadow-md">
         <figure><img src={photo} alt="img" /></figure>
@@ -15,10 +33,10 @@ const Digitalmarketing = ({digital}) => {
             <p className="text-lg">{description}</p>
         </div>
         <div className="pt-4 pb-8 text-center">
-           <Link to={`allJobs/${_id}`} >
+           
             
-           <button className="px-10 py-3 mb-4 w-[90%] text-white bg-[#46b9ee] rounded-md">Bid Now</button>
-           </Link>
+           <button onClick={()=>handelUserEmail(_id)} className="px-10 py-3 mb-4 w-[90%] text-white bg-[#46b9ee] rounded-md">Bid Now</button>
+          
            
             
         </div>

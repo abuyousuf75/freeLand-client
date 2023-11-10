@@ -10,6 +10,7 @@ const AddJobs = () => {
      event.preventDefault()
       const form = event.target;
         const email = form.email.value;
+        const employerEmail = form.employerEmail.value;
         const jobTitle = form.jobTitle.value;
         const deadline = form.deadline.value;
         const description = form.description.value;
@@ -17,7 +18,7 @@ const AddJobs = () => {
         const min_price = form.min_price.value;
         const max_price = form.max_price.value;
         const photo = form.photo.value;
-        const addPostedJobsInfo = {email,jobTitle,deadline,description, jobcategory,min_price,max_price,photo};
+        const addPostedJobsInfo = {email,employerEmail,jobTitle,deadline,description, jobcategory,min_price,max_price,photo};
         console.log(addPostedJobsInfo);
 
         //send post requst for all posted jobs
@@ -46,7 +47,7 @@ const AddJobs = () => {
                     <div className="md:flex gap-6 px-10 py-4">
                         <div className="form-control md:w-1/2">
                             <label className="label">
-                                <span className="label-text text-xl mb-2">Email of the employe</span>
+                                <span className="label-text text-xl mb-2">Your Email</span>
                             </label>
                             <label className="input-group">
                                 <input type="email" defaultValue={user?.email} name="email" className="input  w-full" required />
@@ -99,8 +100,22 @@ const AddJobs = () => {
                                 </select>
 
                             </label>
-                            {/* axdadad */}
+                            
                         </div>
+                        {/* employer email */}
+                        <div className="form-control md:w-1/2">
+                            <label className="label">
+                                <span className="label-text text-xl mb-2">Employer Email</span>
+                            </label>
+
+                            <label className="input-group input w-full">
+                            <input type="email" defaultValue={user?.email} readOnly name="employerEmail" className="input  w-full" required />
+
+                            </label>
+                            
+                        </div>
+
+
                         <div className="form-control ">
                             <label className="label">
                                 <span className="label-text text-xl mb-2">Minimum price</span>

@@ -1,26 +1,35 @@
 import axios from "axios";
-import useAuth from "../../hooks/useAuth";
 import { useEffect, useState } from "react";
-import Table from "./Table";
+import useAuth from "../../hooks/useAuth";
+import BidManage from "./BidManage";
 
 
-const MyBids = () => {
-    const [bids, setBids] = useState([])
+const UsersBidRequest = () => {
     const {user} = useAuth();
-    const uri = `http://localhost:5000/MyBids?email=${user?.email}`;
+   
+    
+   
+    const [allBidRequest, setAllBidsRequest] = useState([]);
 
-  useEffect(() =>{
+    const uri = `http://localhost:5000/BidRequest?employerEmail=${user?.email}`;
+   
+
+useEffect(() =>{
     axios.get(uri)
-    .then(res => {
-        setBids(res.data)
+    .then(res =>{
+        setAllBidsRequest(res.data)
+         console.log(res.data)
     })
-  },[uri])
-  
+},[uri])
+
+
+    
     return (
+        
         <div className="max-w-7xl mx-auto">
-            <h2 className="text-4xl font-bold text-center mt-10">Your Bid jobs here</h2>
-             {/* orders table here */}
-             <div className="overflow-x-auto mt-10">
+            <h2 className="mt-10 text-center font-bold "></h2>
+
+            <div className="overflow-x-auto mt-10">
                 <table className="table">
                     {/* head */}
                     <thead className="bg-[#fe4a23]  rounded-lg text-lg hont-bold text-white">
@@ -29,7 +38,7 @@ const MyBids = () => {
                                Action
                             </th>
                             <th>Job title</th>
-                            <th>Employer email</th>
+                            <th> Bid made by</th>
                             <th>Deadline (day)</th>
                             <th>Bid Amound</th>
                             <th>Status</th>
@@ -38,17 +47,20 @@ const MyBids = () => {
                     <tbody>
                         {/* row 1 */}
                         {
-            bids.map(tables => <Table key={tables._id} tables={tables}> 
+            allBidRequest.map(tables => <BidManage key={tables._id} tables={tables}> 
 
-            </Table>)
+            </BidManage>)
            }
                        
                     </tbody>
                 </table>
             </div>
-           
-        </div>
+
+
+
+            </div>
+       
     );
 };
 
-export default MyBids;
+export default UsersBidRequest;

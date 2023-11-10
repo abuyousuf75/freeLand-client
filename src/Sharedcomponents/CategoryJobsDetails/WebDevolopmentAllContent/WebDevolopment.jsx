@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 
 
 const WebDevolopment = ({web}) => {
-    const [disabledBtn, setDisabled] = useState(false);
+  
     const {user,looding} = useAuth();
     const navigate = useNavigate();
     
@@ -29,7 +29,6 @@ const userEmail = user?.email;
         }
         else{
             navigate(`allJobs/${_id}`)
-            setDisabled(false)
         }
         
       };
@@ -49,7 +48,7 @@ const userEmail = user?.email;
         </div>
         <div className="pt-4 pb-8 text-center">
            
-           <button onClick={()=>handleEmail(_id)} disabled={disabledBtn} className="px-10 py-3 mb-4 w-[90%] text-white bg-[#46b9ee] rounded-md">Bid Now</button>
+           <button onClick={()=>handleEmail(_id)} className="px-10 py-3 mb-4 w-[90%] text-white bg-[#46b9ee] rounded-md">Bid Now</button>
           
            
             

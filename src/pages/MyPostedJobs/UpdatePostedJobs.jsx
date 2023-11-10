@@ -3,10 +3,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
 
 
 
 const UpdatePostedJobs = () => {
+    const {user} = useAuth();
     const parms = useParams();
     const {id} = parms;
   
@@ -25,6 +27,7 @@ const handelUpdateJobs = (event) =>{
     event.preventDefault()
      const form = event.target;
        const email = form.email.value;
+       const employerEmail = form.employerEmail.value;
        const jobTitle = form.jobTitle.value;
        const deadline = form.deadline.value;
        const description = form.description.value;
@@ -32,7 +35,7 @@ const handelUpdateJobs = (event) =>{
        const min_price = form.min_price.value;
        const max_price = form.max_price.value;
        const photo = form.photo.value;
-       const addPostedJobsInfo = {email,jobTitle,deadline,description,job_category,min_price,max_price,photo};
+       const addPostedJobsInfo = {email,employerEmail,jobTitle,deadline,description,job_category,min_price,max_price,photo};
        console.log(addPostedJobsInfo);
 
        //send post requst for all posted jobs
@@ -70,7 +73,7 @@ const {email,jobTitle,deadline,description,max_price
                     <div className="md:flex gap-6 px-10 py-4">
                         <div className="form-control md:w-1/2">
                             <label className="label">
-                                <span className="label-text text-xl mb-2">Email of the employe</span>
+                                <span className="label-text text-xl mb-2">Your Email</span>
                             </label>
                             <label className="input-group">
                                 <input type="email" defaultValue={email}  name="email" className="input  w-full" required />
@@ -104,6 +107,19 @@ const {email,jobTitle,deadline,description,max_price
                                 <input name="description" type="text" placeholder="Inter job description" className="input w-full" defaultValue={description} required />
                             </label>
                         </div>
+                        {/* employer email */}
+                        <div className="form-control md:w-1/2">
+                            <label className="label">
+                                <span className="label-text text-xl mb-2">Employer Email</span>
+                            </label>
+
+                            <label className="input-group input w-full">
+                            <input type="email" defaultValue={user?.email} readOnly name="employerEmail" className="input  w-full" required />
+
+                            </label>
+                            
+                        </div>
+                        
                     </div>
                     {/* form row Category */}
                     <div className="md:flex gap-6 px-10 py-4">
