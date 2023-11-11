@@ -6,9 +6,9 @@ import WebDevolopment from '../../../../Sharedcomponents/CategoryJobsDetails/Web
 import GraphicsDesign from '../../../../Sharedcomponents/CategoryJobsDetails/GraphicsDesignAllContent/GraphicsDesign';
 import Digitalmarketing from '../../../../Sharedcomponents/CategoryJobsDetails/DigitalMarketingAllContent/Digitalmarketing';
 
-
 const RTabs = () => {
     const [looding, setLooding] = useState(true);
+   
    const [webDevolopments, setWebDevolopment] = useState([]);
    const [gaphicsDesigns, setGraphicsDesign] = useState([]);
    const [digitalMarketings, setDigitalMarketing] = useState([]);
@@ -42,6 +42,7 @@ const RTabs = () => {
 },[])
 
 
+
    if(looding){
     return <h2>looding.....</h2>
    }
@@ -50,9 +51,10 @@ const RTabs = () => {
 
     return (
         <div className='mt-14'>
+             
             <Tabs>
                 <TabList>
-                    <Tab>Web development</Tab>
+                    <Tab onClick={() => setLoading(!loading)}>Web development</Tab>
                     <Tab>Digital marketing</Tab>
                     <Tab>Graphics design</Tab>
                 </TabList>

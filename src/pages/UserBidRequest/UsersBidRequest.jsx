@@ -6,10 +6,9 @@ import BidManage from "./BidManage";
 
 const UsersBidRequest = () => {
     const {user} = useAuth();
-   
-    
-   
+
     const [allBidRequest, setAllBidsRequest] = useState([]);
+ 
 
     const uri = `http://localhost:5000/BidRequest?employerEmail=${user?.email}`;
    
@@ -22,13 +21,19 @@ useEffect(() =>{
     })
 },[uri])
 
+if(allBidRequest.length == 0 ){
+   return <p className="text-[#fe4a23] text-center font-bold text-2xl mt-10">No Jobs Request made on your post</p>
+}
 
-    
-    return (
+
+ return (
         
         <div className="max-w-7xl mx-auto">
-            <h2 className="mt-10 text-center font-bold "></h2>
-
+            <h2 className="mt-10 text-center text-4xl font-bold ">Bid Request On Your Posted Jobs </h2>
+            <div className="text-center font-bold text-xl pt-5 ">
+              
+              
+            </div>
             <div className="overflow-x-auto mt-10">
                 <table className="table">
                     {/* head */}

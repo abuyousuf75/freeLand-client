@@ -29,7 +29,7 @@ const router = createBrowserRouter([
         
        {
           path: '/BidRequest',
-          element :<UsersBidRequest></UsersBidRequest>,
+          element :<PrivateRoute><UsersBidRequest></UsersBidRequest></PrivateRoute>,
           
        },
         

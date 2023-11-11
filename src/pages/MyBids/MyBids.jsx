@@ -15,6 +15,12 @@ const MyBids = () => {
         setBids(res.data)
     })
   },[uri])
+
+  /// for no bids
+
+  if(bids.length == 0 ){
+    return <p className="text-[#fe4a23] text-center font-bold text-2xl mt-10">You did not made any bids</p>
+ }
   
     return (
         <div className="max-w-7xl mx-auto">

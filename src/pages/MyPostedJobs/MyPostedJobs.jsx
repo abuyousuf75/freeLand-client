@@ -6,21 +6,26 @@ import axios from "axios";
 import PostedJobsDeatils from "./PostedJobsDeatils";
 
 const MyPostedJobs = () => {
+  const {user} = useAuth();
     const [postedJobs, setPostedJobs] = useState([])
     const  newJobs = postedJobs;
-    console.log(newJobs)
-   
-    const {user} = useAuth();
+    
     const uri = `http://localhost:5000/myPostedJobs?email=${user?.email}`;
 
   useEffect(() =>{
     axios.get(uri)
     .then(res => {
-        setPostedJobs(res.data)
+        setPostedJobs(res.data);
     })
   },[uri])
+  
 
+/// for no post jobs
 
+if(postedJobs.length == 0 ){
+
+  return <p className="text-[#fe4a23] text-center font-bold text-2xl mt-10">You did not posted any jobs yet</p>
+}
 
     
     return (

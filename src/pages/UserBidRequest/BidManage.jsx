@@ -26,9 +26,10 @@ const BidManage = ({tables}) => {
         </td>
         <td>{deadLine}</td>
         <td>${bidAmound}</td>
-        <th>
+        <th >
             
-         <button  className="btn btn-ghost btn-xs">Pendding</button>
+         <button  className="btn btn-ghost btn-sm text-white mr-2 bg-green-500">Accept</button>
+         <button  className="btn btn-ghost btn-sm text-white bg-red-500">Rejecte</button>
             
         </th>
     </tr>
