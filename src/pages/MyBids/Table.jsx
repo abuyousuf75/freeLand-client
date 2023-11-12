@@ -1,10 +1,12 @@
 
 
 const Table = ({ tables }) => {
-    console.log(tables)
-    const { bidAmound, photo, email, employerEmail, deadLine, jobTitle
+   
+    const { status,bidAmound, photo, email, employerEmail, deadLine, jobTitle
     } = tables;
-
+    
+    
+    
     return (
         <tr>
         <td>
@@ -30,8 +32,18 @@ const Table = ({ tables }) => {
         <td>${bidAmound}</td>
         <th>
             
-         <button  className="btn btn-ghost btn-xs">Pendding</button>
+        {
+            status==='Accepted' || status ==='Rejacted'?  <span 
+    
+            className="text-xl font-bold text-[#fe4a23]">{status}</span>  : <button className="btn btn-ghost btn-sm text-black mr-2 ">Pendding</button> 
+
             
+            
+        }
+        
+        
+        
+        
         </th>
     </tr>
     );

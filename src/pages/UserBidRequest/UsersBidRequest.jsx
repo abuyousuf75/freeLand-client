@@ -12,18 +12,51 @@ const UsersBidRequest = () => {
 
     const uri = `http://localhost:5000/BidRequest?employerEmail=${user?.email}`;
    
-
 useEffect(() =>{
     axios.get(uri)
     .then(res =>{
         setAllBidsRequest(res.data)
-         console.log(res.data)
     })
 },[uri])
 
 if(allBidRequest.length == 0 ){
    return <p className="text-[#fe4a23] text-center font-bold text-2xl mt-10">No Jobs Request made on your post</p>
 }
+
+// for update accepted
+
+const handelAccept = (_id) =>{
+   axios.patch(`http://localhost:5000/BidRequest/${_id}`,{status: 'Accepted'})
+   .then(res => {
+    console.log(res.data)
+     if(res.data.modifiedCount>0){
+        const remaining = allBidRequest.filter(bids => bids._id !==_id);
+        const updated = allBidRequest.find(bids => bids._id ===_id )
+        updated.status = "Accepted";
+        const newAccept = [updated,...remaining];
+        console.log(newAccept,'iji')
+        setAllBidsRequest(newAccept)
+     }
+   })
+ }
+// for update rejacted
+
+const handelRejacted = (_id) =>{
+   axios.patch(`http://localhost:5000/BidRequest/${_id}`,{status: 'Rejacted'})
+   .then(res => {
+    console.log(res.data)
+     if(res.data.modifiedCount>0){
+        const remaining = allBidRequest.filter(bids => bids._id !==_id);
+        const updated = allBidRequest.find(bids => bids._id ===_id )
+        updated.status = "Rejacted";
+        const newAccept = [updated,...remaining];
+        console.log(newAccept,'iji')
+        setAllBidsRequest(newAccept)
+     }
+   })
+ }
+ 
+
 
 
  return (
@@ -52,7 +85,7 @@ if(allBidRequest.length == 0 ){
                     <tbody>
                         {/* row 1 */}
                         {
-            allBidRequest.map(tables => <BidManage key={tables._id} tables={tables}> 
+            allBidRequest.map(tables => <BidManage key={tables._id} tables={tables} handelAccept={handelAccept}  handelRejacted={ handelRejacted}> 
 
             </BidManage>)
            }

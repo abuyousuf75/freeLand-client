@@ -5,8 +5,12 @@ import 'react-tabs/style/react-tabs.css';
 import WebDevolopment from '../../../../Sharedcomponents/CategoryJobsDetails/WebDevolopmentAllContent/WebDevolopment';
 import GraphicsDesign from '../../../../Sharedcomponents/CategoryJobsDetails/GraphicsDesignAllContent/GraphicsDesign';
 import Digitalmarketing from '../../../../Sharedcomponents/CategoryJobsDetails/DigitalMarketingAllContent/Digitalmarketing';
+import Aos from 'aos';
 
 const RTabs = () => {
+    useEffect(()=>{
+        Aos.init();
+    },[]) 
     const [looding, setLooding] = useState(true);
    
    const [webDevolopments, setWebDevolopment] = useState([]);
@@ -50,7 +54,7 @@ const RTabs = () => {
 
 
     return (
-        <div className='mt-14'>
+        <div  className='mt-14'>
              
             <Tabs>
                 <TabList>
@@ -61,7 +65,7 @@ const RTabs = () => {
 
                 <TabPanel>
                    {/* web db content */}
-                 <div className='grid md:grid-cols-3 mt-10 gap-6'>
+                 <div  data-aos="fade-right" className='grid md:grid-cols-3 mt-10 gap-6'>
                       
                 {
                     webDevolopments.map(web => <WebDevolopment key={web._id} web={web}></WebDevolopment>)
@@ -71,7 +75,7 @@ const RTabs = () => {
                 </TabPanel>
                 <TabPanel>
                     {/* digtla marketing content */}
-                <div className='grid md:grid-cols-3 mt-10 gap-6'>
+                <div data-aos="fade-left" className='grid md:grid-cols-3 mt-10 gap-6'>
                   {
                     digitalMarketings.map(digital => <Digitalmarketing key={digital._id} digital={digital}></Digitalmarketing>)
                   }
@@ -79,7 +83,7 @@ const RTabs = () => {
                 </TabPanel>
                 <TabPanel>
                     {/*Graphics design content  */}
-                   <div className='grid md:grid-cols-3 mt-10 gap-6'>
+                   <div data-aos="fade-down" className='grid md:grid-cols-3 mt-10 gap-6'>
                     {
                         gaphicsDesigns.map(graphics => <GraphicsDesign key={graphics._id} graphics={graphics}></GraphicsDesign>)
                     }

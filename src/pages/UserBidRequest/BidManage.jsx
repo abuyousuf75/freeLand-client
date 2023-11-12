@@ -1,8 +1,7 @@
 
 
-const BidManage = ({tables}) => {
-    const { bidAmound, photo, email, employerEmail, deadLine, jobTitle
-    } = tables;
+const BidManage = ({tables,handelAccept,handelRejacted}) => {
+    const {status, bidAmound, photo, email, employerEmail, deadLine, jobTitle, _id} = tables;
     return (
         <tr>
         <td>
@@ -28,8 +27,15 @@ const BidManage = ({tables}) => {
         <td>${bidAmound}</td>
         <th >
             
-         <button  className="btn btn-ghost btn-sm text-white mr-2 bg-green-500">Accept</button>
-         <button  className="btn btn-ghost btn-sm text-white bg-red-500">Rejecte</button>
+        {
+            status==='Accepted' ?  <span className="text-xl font-bold text-green-700">Accepted</span> : <button onClick={()=>handelAccept(_id)} className="btn btn-ghost btn-sm text-white mr-2 bg-green-500">Accept</button> 
+            
+        }
+       
+    {
+        status ==='Rejacted' ? <span className="text-xl font-bold text-red-700">Rejacted</span>:
+        <button  onClick={()=>handelRejacted(_id)} className="btn btn-ghost btn-sm text-white bg-red-500 ml-4">Reject</button>
+    }
             
         </th>
     </tr>

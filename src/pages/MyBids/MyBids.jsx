@@ -5,16 +5,20 @@ import Table from "./Table";
 
 
 const MyBids = () => {
-    const [bids, setBids] = useState([])
     const {user} = useAuth();
-    const uri = `http://localhost:5000/MyBids?email=${user?.email}`;
+    const [asc, setAsc] = useState(true);
+    const uri2 = `http://localhost:5000/MyBids?email=${user?.email}&sort=${asc?'asc': 'dsc'}`
+    const [bids, setBids] = useState([asc])
+   
+    // const uri = `http://localhost:5000/MyBids?email=${user?.email}`;
+    
 
   useEffect(() =>{
-    axios.get(uri)
+    axios.get(uri2,{withCredentials:true})
     .then(res => {
         setBids(res.data)
     })
-  },[uri])
+  },[uri2])
 
   /// for no bids
 
@@ -25,6 +29,14 @@ const MyBids = () => {
     return (
         <div className="max-w-7xl mx-auto">
             <h2 className="text-4xl font-bold text-center mt-10">Your Bid jobs here</h2>
+            {/* sort here */}
+            <div className="text-center m-auto ">
+                <h2 className="text-2xl font-bold pt-8 text-[#fe4a23]">Sort By Price : <button onClick={() => setAsc(!asc)} className="btn btn-md text-white hover:bg-black bg-[#fe4a23]">
+                    {
+                        asc ? 'High to low' : 'Low to high'
+                    }
+                    </button></h2>
+            </div>
              {/* orders table here */}
              <div className="overflow-x-auto mt-10">
                 <table className="table">
