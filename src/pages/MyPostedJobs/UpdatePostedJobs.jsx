@@ -15,7 +15,7 @@ const UpdatePostedJobs = () => {
 const [updateJobs, setUpdateJobs] = useState([]);
 
 useEffect(() =>{
-   fetch(`http://localhost:5000/updatePostedJobs/${id}`)
+   fetch(`https://freeland-backend.vercel.app/updatePostedJobs/${id}`)
    .then(res => res.json())
    .then(data => {
     setUpdateJobs(data)
@@ -40,7 +40,7 @@ const handelUpdateJobs = (event) =>{
 
        //send post requst for all posted jobs
 
-       axios.put(`http://localhost:5000/updatePostedJobs/${id}`,addPostedJobsInfo)
+       axios.put(`https://freeland-backend.vercel.app/updatePostedJobs/${id}`,addPostedJobsInfo)
        .then(res=> {
           if(res.data.modifiedCount > 0){
            Swal.fire({

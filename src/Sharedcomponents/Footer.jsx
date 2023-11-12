@@ -14,7 +14,7 @@ const Footer = () => {
        const subscriveInfo = {email};
        console.log(subscriveInfo);
 
-       axios.post('http://localhost:5000/subscriber',subscriveInfo)
+       axios.post('https://freeland-backend.vercel.app/subscriber',subscriveInfo)
        .then(res => {
         if(res.data.insertedId){
          Swal.fire({

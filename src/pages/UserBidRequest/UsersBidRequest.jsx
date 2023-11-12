@@ -10,7 +10,7 @@ const UsersBidRequest = () => {
     const [allBidRequest, setAllBidsRequest] = useState([]);
  
 
-    const uri = `http://localhost:5000/BidRequest?employerEmail=${user?.email}`;
+    const uri = `https://freeland-backend.vercel.app/BidRequest?employerEmail=${user?.email}`;
    
 useEffect(() =>{
     axios.get(uri)
@@ -26,7 +26,7 @@ if(allBidRequest.length == 0 ){
 // for update accepted
 
 const handelAccept = (_id) =>{
-   axios.patch(`http://localhost:5000/BidRequest/${_id}`,{status: 'Accepted'})
+   axios.patch(`https://freeland-backend.vercel.app/BidRequest/${_id}`,{status: 'Accepted'})
    .then(res => {
     console.log(res.data)
      if(res.data.modifiedCount>0){
@@ -42,7 +42,7 @@ const handelAccept = (_id) =>{
 // for update rejacted
 
 const handelRejacted = (_id) =>{
-   axios.patch(`http://localhost:5000/BidRequest/${_id}`,{status: 'Rejacted'})
+   axios.patch(`https://freeland-backend.vercel.app/BidRequest/${_id}`,{status: 'Rejacted'})
    .then(res => {
     console.log(res.data)
      if(res.data.modifiedCount>0){

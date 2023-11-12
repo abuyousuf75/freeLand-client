@@ -24,7 +24,7 @@ const AllJobs = () => {
       
 
         // allBids post
-        axios.post('http://localhost:5000/allBid',
+        axios.post('https://freeland-backend.vercel.app/allBid',
             bidInfo
         )
         .then(res => {

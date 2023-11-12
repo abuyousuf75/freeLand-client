@@ -23,7 +23,7 @@ const AddJobs = () => {
 
         //send post requst for all posted jobs
 
-        axios.post('http://localhost:5000/postedJobs',addPostedJobsInfo)
+        axios.post('https://freeland-backend.vercel.app/postedJobs',addPostedJobsInfo)
         .then(res=> {
            if(res.data.insertedId){
             Swal.fire({

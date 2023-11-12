@@ -19,7 +19,7 @@ const RTabs = () => {
    
     // for weDevolopment
     useEffect(() =>{
-        axios.get('http://localhost:5000/allJobs?jobcategory=webDevolopment')
+        axios.get('https://freeland-backend.vercel.app/allJobs?jobcategory=webDevolopment')
         .then(res =>{
            setWebDevolopment(res.data);
            setLooding(false)
@@ -28,7 +28,7 @@ const RTabs = () => {
     
    // for DegitalMarketing
    useEffect(() =>{
-    axios.get('http://localhost:5000/allJobs?jobcategory=digitalMarketing')
+    axios.get('https://freeland-backend.vercel.app/allJobs?jobcategory=digitalMarketing')
     .then(res =>{
        setDigitalMarketing(res.data);
        setLooding(false)
@@ -38,7 +38,7 @@ const RTabs = () => {
    
    // for graphics designer 
    useEffect(() =>{
-    axios.get('http://localhost:5000/allJobs?jobcategory=graphicsDesign')
+    axios.get('https://freeland-backend.vercel.app/allJobs?jobcategory=graphicsDesign')
     .then(res =>{
        setGraphicsDesign(res.data);
        setLooding(false)

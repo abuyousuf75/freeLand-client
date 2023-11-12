@@ -49,12 +49,12 @@ const router = createBrowserRouter([
         {
           path : 'allJobs/:id',
           element : <PrivateRoute><AllJobs></AllJobs></PrivateRoute>,
-          loader : ({params}) => fetch(`http://localhost:5000/allJobs/${params.id}`)
+          loader : ({params}) => fetch(`https://freeland-backend.vercel.app/allJobs/${params.id}`)
         },
         {
           path: "/updatePostedJobs/:id",
           element : <PrivateRoute><UpdatePostedJobs></UpdatePostedJobs></PrivateRoute>,
-          loader : () => fetch('http://localhost:5000/updatePostedJobs')
+          loader : () => fetch('https://freeland-backend.vercel.app/updatePostedJobs')
          
         },
 

@@ -10,7 +10,7 @@ const MyPostedJobs = () => {
     const [postedJobs, setPostedJobs] = useState([])
     const  newJobs = postedJobs;
     
-    const uri = `http://localhost:5000/myPostedJobs?email=${user?.email}`;
+    const uri = `https://freeland-backend.vercel.app/myPostedJobs?email=${user?.email}`;
 
   useEffect(() =>{
     axios.get(uri)

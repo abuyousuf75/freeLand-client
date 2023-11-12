@@ -23,7 +23,7 @@ const PostedJobsDeatils = ({postedItems,newJobs,setPostedJobs}) => {
                 if (result.isConfirmed) {
                 
                   
-                    axios.delete(`http://localhost:5000/myPostedJobs/${_id}`)
+                    axios.delete(`https://freeland-backend.vercel.app/myPostedJobs/${_id}`)
                     .then(res => {
                         console.log(res.data);
                         if(res.data.deletedCount > 0){

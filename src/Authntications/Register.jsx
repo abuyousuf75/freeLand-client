@@ -58,7 +58,7 @@ const handelRegisterForm = (event) =>{
 
         })
        
-        axios.post('http://localhost:5000/user',
+        axios.post('https://freeland-backend.vercel.app/user',
             userInfo
         )
         .then(res =>{

@@ -7,10 +7,10 @@ import Table from "./Table";
 const MyBids = () => {
     const {user} = useAuth();
     const [asc, setAsc] = useState(true);
-    const uri2 = `http://localhost:5000/MyBids?email=${user?.email}&sort=${asc?'asc': 'dsc'}`
+    const uri2 = `https://freeland-backend.vercel.app/MyBids?email=${user?.email}&sort=${asc?'asc': 'dsc'}`
     const [bids, setBids] = useState([asc])
    
-    // const uri = `http://localhost:5000/MyBids?email=${user?.email}`;
+    // const uri = `https://freeland-backend.vercel.app/MyBids?email=${user?.email}`;
     
 
   useEffect(() =>{
